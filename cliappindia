@@ -1,0 +1,60 @@
+var readlineSync = require('readline-sync');
+var chalk = require('chalk')
+var userName = readlineSync.question(chalk.yellow("What is your name?\n"));
+console.log(chalk.yellow("\nNamaste "+userName));
+console.log(chalk.green("\nThis is do you know your India's freedom struggle?"));
+var score=0;
+function play(question, answer) 
+{
+  var userAnswer = readlineSync.question(question);
+  if (userAnswer === answer)
+  {
+    console.log(chalk.green("\nThat's correct!\n"));
+    score = score + 2;
+  }
+  else 
+  {
+    console.log(chalk.red("\nUh Oh! No that's not correct!\n"));
+    score = score - 1;
+  }
+}
+var questions=[{
+  question:"\nWho was the first to describe the mutiny of 1857 as the first war of independence\na.Mahatma Gandhi\nb.Bhagat Singh\nc.Veer Savarkar\nd.Jawaharlal Nehru\n",
+  answer:'c'
+  },
+  {
+  question:"\nWho gave the slogan Delhi chalo or March to Delhi\na.Mahatma Gandhi\nb.Bhagat Singh\nc.Jawaharlal Nehru\nd.Subash Chandrabose\n",
+  answer:'d'
+  },
+  {
+  question:"\nWhich leader died on the day the Non cooperation movement was launched in 1920\na.Mahatma Gandhi\nb.Bhagat Singh\nc.Bal Gangadhar Tilak\nd.Subash Chandrabose\n",
+  answer:'c'
+  },
+  {
+  question:"\nIn which of the following movements, Vande Mataram was adopted slogan for agitation?\na.Salt Satyagraha\nb.Non-cooperation Movement in 1920\nc.Partition of Bengal in 1905\nd.Revolt of 1857\n",
+  answer:'c'
+  },
+  {
+  question:"\nWhich famous slogan was given by Shaheed Bhagat Singh after Bomb Blast in parliment\na.Bairon ko sunane keliye dhamake ki zaroorat hai\nb.Inqualab Zindabad\nc.Tum mujhe khoon do main tumhe aazadi dunga\nd.Jai Hind\n",
+  answer:'a'
+  },
+  {
+  question:"\nWhat was the age of Shaheed Bhagat Singh when he was hanged on 23 March 1931?\na.18\nb.23\nc.28\nd.40\n",
+  answer:'b'
+  },
+  {
+  question:"\nDeath of which freedom fighter remains a mystery\na.Mahatma Gandhi\nb.Bhagat Singh\nc.Jawaharlal Nehru\nd.Subash Chandrabose\n",
+  answer:'d'
+  },
+  ]
+
+  for (var i=0;i<questions.length; i++) 
+  {
+    var currentresult = questions[i];
+    play(currentresult.question, currentresult.answer);
+  }
+
+console.log(chalk.yellow("\nYour score is "+score+"\n"));
+console.log(chalk.green("\n-----<<Wall of Fame>>-----\n"));
+console.log(chalk.yellow("Sahithi 14\n"));
+console.log(chalk.green("If your score is more than the leaderboard score text me(sahithi#0328) on discord to appear on the wall of fame"));
